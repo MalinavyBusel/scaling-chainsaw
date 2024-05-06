@@ -20,14 +20,14 @@
     nextTick queue  - не часть libuv
     promise queue  - не часть libuv
 
-Макрозадачи - позволяют не ждать слишком долго выпонения маленьких задач:
-setTimeout & setInterval
+Макрозадачи - позволяют не ждать слишком долго выпонения маленьких задач:\
+    setTimeout & setInterval\
     io queue (fs, http, stdin)\
     setImmediate\
     closers
 
 Когда текущий стек полностью заканчивается (и только тогда), то EL берет сообщения из очереди сообщ.
-Порядок такой:
+Порядок такой:\
     MICRO\
     setTimeout & setInterval\
     MICRO\
