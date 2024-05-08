@@ -16,37 +16,59 @@
 в очередь eventloop.
 
 В сообщениях есть микрозадачи и макрозадачи
-Микрозадачи (microtask queue or job queue):
-    nextTick queue  - не часть libuv
-    promise queue  - не часть libuv
+Микрозадачи (microtask queue or job queue):\
+- nextTick queue  - не часть libuv
+- promise queue  - не часть libuv
 
-Макрозадачи - позволяют не ждать слишком долго выпонения маленьких задач:\
-    setTimeout & setInterval\
-    io queue (fs, http, stdin)\
-    setImmediate\
-    closers
+Макрозадачи - позволяют не ждать слишком долго выпонения маленьких задач, выполняются после каждой отдельной макрозадачи:
+- setTimeout & setInterval
+- io queue (fs, http, stdin)
+- setImmediate
+- closers
 
 Когда текущий стек полностью заканчивается (и только тогда), то EL берет сообщения из очереди сообщ.
-Порядок такой:\
-    MICRO\
-    setTimeout & setInterval\
-    MICRO\
-    io queue (fs, http, stdin)\
-    MICRO\
-    setImmediate\
-    MICRO\
-    closers\
-    MICRO\
-    Дальше либо заново, если осталось что обрабатывать, либо eventloop завершает работу
+Порядок такой:
+ -  MICRO
+ -  setTimeout & setInterval
+ -  MICRO
+ -  io queue (fs, http, stdin)
+ -  io polling  - проверяются все io задачи, и если они выполнены, то добавляются их колбэки в IO queue. Так как мы из неё уже вышли, то выполнятся эти колбэки только на следующей итерации
+ -  MICRO
+ -  setImmediate
+ -  MICRO
+ -  closers
+ -  MICRO
+ -  Дальше либо заново, если осталось что обрабатывать, либо eventloop завершает работу\
+\!\!\!\! EL не переходит к новому этапу макрозадач, пока очередь микрозадач не будет пуста. То есть,
+если в процессе выполнения промиса мы добавили новый nextTick, то EL вернется и выполнит его.\
+\!\!\!\! EL проверяет микрозадачи не только между этапами макро, но и между каждой отдельной
+макрозадачей. То есть, если у нас 3 setTimeout,  после выполнения каждого из них будет проверена очередь микрозадач.
 
 
 
 
-FAQ:
-    If two async tasks such as setTimeout and readFile complete at the same time, how does Node decide which callback function to run first on the call stack? Does one get priority over the other?\
-    Answer:\
-    Timer callbacks are executed before I/O callbacks, even if both are ready at the exact same time.
+NB:
 
+   \! setTimeout добавляется в очередь только после того, как закончилось время. То есть тут:
+```
+setTimeout(() => console.log("this is setTimeout 1"), 1000);
+setTimeout(() => console.log("this is setTimeout 2"), 500);
+setTimeout(() => console.log("this is setTimeout 3"), 0);
+```
+первым будет добавлен в очередь setTimeout 3, хотя в коде он вызван последним. С setInterval примерно также,
+т.е. на каждый интервальный шаг просто кладется новый колбэк в свою очередь
 
+Нельзя гарантировать, что setTimeout с значением 0 выполнится раньше, чем остальные колбэки из других очередей.
+Минимальная задержка выполнения таймера не 0, а 1мс. Если мы войдём в TimerQueue меньше, чем за 1мс,
+то очередь таймеров ещё будет пуста, и мы пойдём сразу на IO. Если процессор чуть более подгружен,
+то мы зайдем в timerQueue после этой 1мс, и там уже будет наш колбэк таймера
 
-        
+IO колбэкт добавляются в очередь не тогда, когда они были объявлены, а тогда, когда выли получены все их данные.
+```
+fs.readFile(__filename, () => {
+    console.log("this is readFile 1");
+});
+setImmediate(() => console.log("this is setImmediate 1"));
+```
+Очередь setImmediate идёт после I\O, но в данном случае на readfile колбэк добавляется в очередь не сразу, а только после того, как файл прочитан.
+Мы выполним код и пойдем на макрозадачи, но IO queue будет пока пустой, тк файл ещё не прочитан/не обработан , поэтому setImmediate будет выведен первой.
