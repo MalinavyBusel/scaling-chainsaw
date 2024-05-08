@@ -34,7 +34,7 @@
  -  io queue (fs, http, stdin)
  -  io polling  - проверяются все io задачи, и если они выполнены, то добавляются их колбэки в IO queue. Так как мы из неё уже вышли, то выполнятся эти колбэки только на следующей итерации
  -  MICRO
- -  setImmediate
+ -  setImmediate - immediate, потому что когда его задавать в IO колбэках, он всегда выполнится перед closers и timers
  -  MICRO
  -  closers
  -  MICRO
