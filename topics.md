@@ -1,9 +1,9 @@
 General (node js and js) \
 ~~Prototype~~\
-Arrays methods\
+~~Arrays methods~~\
 Set, Map, WeakSet, WeakMap\
 http\
-promise\
+~~promise~~\
 event loop browser\
 node event loop\
 decorator\
