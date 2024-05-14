@@ -1,5 +1,5 @@
 General (node js and js) \
-Prototype\
+~~Prototype~~\
 Arrays methods\
 Set, Map, WeakSet, WeakMap\
 http\
