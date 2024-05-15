@@ -4,13 +4,15 @@ General (node js and js) \
 Set, Map, WeakSet, WeakMap\
 http\
 ~~promise~~\
-event loop browser\
-node event loop\
+~~event loop browser~~\
+~~node event loop~~\
 decorator\
 middleware\
 garbage collector\
 setImmediate & setTimeout\
-child processes & working threads\
+~~child processes~~\
+~~working threads~~\
+node thread pool\
 streams\
 Cluster\
 dependency injection\
