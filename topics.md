@@ -12,7 +12,7 @@ garbage collector\
 setImmediate & setTimeout\
 ~~child processes~~\
 ~~working threads~~\
-node thread pool\
+~~node thread pool~~\
 streams\
 Cluster\
 dependency injection\
