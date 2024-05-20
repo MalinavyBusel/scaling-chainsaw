@@ -1,15 +1,15 @@
 General (node js and js) \
 ~~Prototype~~\
 ~~Arrays methods~~\
-Set, Map, WeakSet, WeakMap\
+~~Set, Map, WeakSet, WeakMap~~\
 http\
 ~~promise~~\
 ~~event loop browser~~\
 ~~node event loop~~\
-decorator\
+~~decorator~~\
 middleware\
-garbage collector\
-setImmediate & setTimeout\
+~~garbage collector~~\
+~~setImmediate & setTimeout~~\
 ~~child processes~~\
 ~~working threads~~\
 ~~node thread pool~~\

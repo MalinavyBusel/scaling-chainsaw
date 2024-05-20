@@ -1,0 +1,1 @@
+Нужно сравнивать с помощью json.stringify, lodash, util.isDeepStrictEqual, или просто руками в цикле
