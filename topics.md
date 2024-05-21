@@ -7,7 +7,7 @@ http\
 ~~event loop browser~~\
 ~~node event loop~~\
 ~~decorator~~\
-middleware\
+~~middleware~~\
 ~~garbage collector~~\
 ~~setImmediate & setTimeout~~\
 ~~child processes~~\
@@ -16,7 +16,7 @@ middleware\
 streams\
 Cluster\
 dependency injection\
-how is data stored in V8 JS engine memory\
+~~how is data stored in V8 JS engine memory~~\
 Oauth2\
 ~~jwt token~~\
 CORS\
