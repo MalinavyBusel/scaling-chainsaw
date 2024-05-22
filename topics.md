@@ -2,7 +2,7 @@ General (node js and js) \
 ~~Prototype~~\
 ~~Arrays methods~~\
 ~~Set, Map, WeakSet, WeakMap~~\
-http\
+-http\
 ~~promise~~\
 ~~event loop browser~~\
 ~~node event loop~~\
@@ -13,15 +13,21 @@ http\
 ~~child processes~~\
 ~~working threads~~\
 ~~node thread pool~~\
-streams\
-Cluster\
-dependency injection\
+-streams\
+~~Cluster~~\
+~~dependency injection~~\
 ~~how is data stored in V8 JS engine memory~~\
-Oauth2\
+-Oauth2\
 ~~jwt token~~\
-CORS\
+~~CORS~~\
 ~~XSS~~\
-tests: unit, integration, e2e
+-tests: unit, integration, e2e\
+Стрелочные функции, анонимные функции, обычные функции\
+~~EventLoop in browser~~\
+~~https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array~~ \
+-Каррирование\
+rxjs\
+keyclock\
 
 NodeJS\
 Controllers\
@@ -40,6 +46,7 @@ Injection scopes\
 Circular dependency\
 Module reference\
 Execution context\
+@Inject & @Injectable\
 Lifecycle events\
 gRPC
 
