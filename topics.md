@@ -22,21 +22,21 @@ General (node js and js) \
 ~~CORS~~\
 ~~XSS~~\
 -tests: unit, integration, e2e\
-Стрелочные функции, анонимные функции, обычные функции\
+~~Стрелочные функции, анонимные функции, обычные функции~~\
 ~~EventLoop in browser~~\
 ~~https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array~~ \
 -Каррирование\
-rxjs\
-keyclock\
+~~rxjs~~\
+~~keycloak~~\
 
 NodeJS\
-Controllers\
-Providers\
-Modules\
-Middleware\
-Exception filters\
-Pipes\
-Guards\
+~~Controllers~~\
+~~Providers~~\
+~~Modules~~\
+~~Middleware~~\
+~~Exception filters~~\
+~~Pipes~~\
+~~Guards~~\
 Interceptors\
 Custom decorators\
 Custom providers\
