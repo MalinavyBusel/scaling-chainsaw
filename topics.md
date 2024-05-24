@@ -37,16 +37,16 @@ NodeJS\
 ~~Exception filters~~\
 ~~Pipes~~\
 ~~Guards~~\
-Interceptors\
-Custom decorators\
-Custom providers\
-Asynchronous providers\
-Dynamic modules\
-Injection scopes\
-Circular dependency\
-Module reference\
-Execution context\
-@Inject & @Injectable\
+~~Interceptors~~\
+~~Custom decorators~~\
+~~Custom providers~~\
+~~Asynchronous providers~~\
+~~Dynamic modules~~\
+~~Injection scopes~~\
+~~Circular dependency~~\
+~~Module reference~~\
+~~Execution context~~\
+~~@Inject & @Injectable~~\
 Lifecycle events\
 gRPC
 

@@ -1,0 +1,1 @@
+![how the request is handled](nest_request_cycle.jpg)
