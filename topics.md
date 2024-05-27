@@ -47,8 +47,8 @@ NodeJS\
 ~~Module reference~~\
 ~~Execution context~~\
 ~~@Inject & @Injectable~~\
-Lifecycle events\
-gRPC
+~~Lifecycle events~~\
+~~gRPC~~
 
 ci/cd\
 SOLID\
